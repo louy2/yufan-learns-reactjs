@@ -25,6 +25,22 @@ var TimerWrapper = React.createClass({
   }
 });
 
+var Button = React.createClass({
+  startTimer: function () {
+    return this.props.startTimer(this.props.time);
+  },
+  render: function () {
+    return <button onClick={this.startTimer}>{this.props.time} seconds</button>;
+  }
+});
+
+var Timer = React.createClass({
+  render: function () {
+    if (this.props.time === null) return <div/>;
+    return <h1>{this.props.time}</h1>;
+  }
+});
+
 React.render(
   <TimerWrapper/>,
   document.body
