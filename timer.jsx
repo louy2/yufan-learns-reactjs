@@ -4,6 +4,13 @@ var TimerWrapper = React.createClass({
     return {time: null, int: null};
   },
   startTimer: function (time) {
+    clearInterval(this.state.int);
+    var int = setInterval(() => {
+      var tl = this.state.time - 1;
+      if (tl === 0) clearInterval(int);
+      this.setState({time: tl});
+    });
+    return this.setState({time: time, int: int});
   },
   render: function () {
     return (
