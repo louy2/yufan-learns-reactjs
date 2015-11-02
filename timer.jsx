@@ -9,7 +9,7 @@ var TimerWrapper = React.createClass({
       var tl = this.state.time - 1;
       if (tl === 0) clearInterval(int);
       this.setState({time: tl});
-    });
+    }, 1000);
     return this.setState({time: time, int: int});
   },
   render: function () {
