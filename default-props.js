@@ -1,4 +1,4 @@
-/* globals React */
+/* globals React ReactDOM */
 "use strict";
 
 var Button = React.createClass({
@@ -6,6 +6,10 @@ var Button = React.createClass({
 
   getDefaultProps: function getDefaultProps() {
     return { buttonLabel: 'lorem ipsum' };
+  },
+  propTypes: {
+    buttonLabel: React.PropTypes.string,
+    handler: React.PropTypes.func.isRequired
   },
   render: function render() {
     return React.createElement(
@@ -30,4 +34,4 @@ var Content = React.createClass({
   }
 });
 
-React.render(React.createElement(Content, null), document.body);
+ReactDOM.render(React.createElement(Content, null), document.body);
